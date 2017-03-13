@@ -4,6 +4,7 @@ textArray[1] = "I'm gone build something";
 textArray[2] = "You gone love it!";
 textArray[2] = "And i'm gone build it!";
 textArray[3] = "HOI";
+textArray[4] = "Tring tring lekker ding";
 // Contains the text
 
 // Contains the variable names of every text
@@ -31,19 +32,16 @@ function typeing() {
       // If the array don't reased it limit
       text += textInArray[i];
       placeText(text);
-      console.log(textInArray[i]);
     }
     // var textArrayPositionPlusOne = textArrayPosition + 1;
     else if (textInArray.length == textArrayPosition) {
       text += textInArray[i];
       placeText(text);
-      console.log(textInArray[i]);
       // To peform the last type
       // We are doing it once here
 
       var textArrayPositionPlusOne = textArrayPosition + 1;
       // Its to long lets break it!
-      console.log("lol");
       clearInterval(type);
       type = setInterval(backSpace, 120);
       // backSpace();
@@ -105,4 +103,22 @@ function getMaximumTextArray() {
 function placeText(text) {
   // This function places the tekst
   document.getElementById('text').innerHTML = text;
+}
+function blinkerHandler() {
+  console.log("RUN");
+  var blink;
+  blink = setInterval(blinker, 300);
+}
+function blinker() {
+  // This function wil enable and disable the blinker
+  console.log("RUN");
+  var blink = document.getElementById('blinker');
+  console.log(blink.className);
+  if (blink.className == "") {
+    blink.className = "blinker";
+  }
+  else {
+    blink.className = "";
+  }
+
 }

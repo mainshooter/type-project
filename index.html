@@ -4,11 +4,26 @@
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Javascript type-project</title>
+
     <script src="main.js"></script>
+
+    <style>
+      .blinker {
+        width: 0.3em;
+        height: 1em;
+        background: orange;
+      }
+      #blinker {
+        float: left;
+      }
+      #text {
+        float: left;
+      }
+    </style>
   </head>
-  <body onload="typeHandler();">
+  <body onload="typeHandler(); blinkerHandler();">
     <p>In this project i'm gonna make a tekst typer</p>
 
-    <div id="text"></div>
+    <div><div id="text"></div><div id="blinker">&nbsp;</div></div>
   </body>
 </html>
