@@ -4,7 +4,7 @@ textArray[1] = "I'm gone build something";
 textArray[2] = "You gone love it!";
 textArray[2] = "And i'm gone build it!";
 textArray[3] = "HOI";
-textArray[4] = "Tring tring lekker ding";
+textArray[4] = "Tring tring lekkerding";
 // Contains the text
 
 // Contains the variable names of every text
@@ -105,7 +105,7 @@ function placeText(text) {
   document.getElementById('text').innerHTML = text;
 }
 function blinkerHandler() {
-  console.log("RUN");
+  // Blinks
   var blink;
   blink = setInterval(blinker, 300);
 }
