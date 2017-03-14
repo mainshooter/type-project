@@ -4,20 +4,37 @@ textArray[1] = "I'm gone build something";
 textArray[2] = "You gone love it!";
 textArray[3] = "HOI";
 // Contains the text
-
 // Contains the variable names of every text
-function setTextArray() {
-  // Get the textArray and set if for the script
-}
-function stringToArray(array) {
-  array = array.split("");
-  return(array);
-}
+
 var currentPosition = 0;
 // This variable contains where we are in the array
 
 var textArrayPosition = 0;
 // This variable contains where we are in the text array
+
+var textInArray;
+// Contains the text as a array
+
+var type;
+// type contains the setInterval
+
+var runable = "true";
+//Contains if the application is ready to run
+
+function setTextArray(object) {
+  // Get the textArray and set if for the script
+  if (typeof(object) == "object") {
+    textArray = object;
+  }
+  else {
+    alert("This isn't a array");
+    runable = "false";
+  }
+}
+function stringToArray(array) {
+  array = array.split("");
+  return(array);
+}
 
 function typeing() {
   // This function is gone type
@@ -38,11 +55,9 @@ function typeing() {
       // To peform the last type
       // We are doing it once here
 
-      var textArrayPositionPlusOne = textArrayPosition + 1;
       // Its to long lets break it!
       clearInterval(type);
       type = setInterval(backSpace, 120);
-      // backSpace();
     }
   }
   textArrayPosition++;
@@ -69,25 +84,20 @@ function backSpace() {
       // Start again
     }
 }
-
-var textInArray;
-// Contains the text in an array
-
-var type;
-// Tpe contains the setInterval
 function typeHandler() {
   // This function handels everything
-  var MaximumLenghtTextArray = getMaximumTextArray();
-  if (MaximumLenghtTextArray != currentPosition) {
-    var currentText = textArray[currentPosition];
-
-  }
-  else {
-    // If we have done everything
-    currentPosition = 0;
+  if (runable == "true") {
+    var MaximumLenghtTextArray = getMaximumTextArray();
+    if (MaximumLenghtTextArray != currentPosition) {
+      // Nothings to de special
+    }
+    else {
+      // If we have done everything
+      currentPosition = 0;
+    }
     var currentText = textArray[currentPosition];
     textInArray = stringToArray(currentText);
-
+    type = setInterval(typeing, 100);
   }
 }
 function getMaximumTextArray() {
@@ -106,9 +116,7 @@ function blinkerHandler() {
 }
 function blinker() {
   // This function wil enable and disable the blinker
-  console.log("RUN");
   var blink = document.getElementById('blinker');
-  console.log(blink.className);
   if (blink.className == "") {
     blink.className = "blinker";
   }
