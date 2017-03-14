@@ -2,9 +2,7 @@ var textArray = [];
 textArray[0] = "I'm a programmer";
 textArray[1] = "I'm gone build something";
 textArray[2] = "You gone love it!";
-textArray[2] = "And i'm gone build it!";
 textArray[3] = "HOI";
-textArray[4] = "Tring tring lekkerding";
 // Contains the text
 
 // Contains the variable names of every text
@@ -82,9 +80,7 @@ function typeHandler() {
   var MaximumLenghtTextArray = getMaximumTextArray();
   if (MaximumLenghtTextArray != currentPosition) {
     var currentText = textArray[currentPosition];
-    textInArray = stringToArray(currentText);
 
-    type = setInterval(typeing, 120);
   }
   else {
     // If we have done everything
@@ -92,7 +88,6 @@ function typeHandler() {
     var currentText = textArray[currentPosition];
     textInArray = stringToArray(currentText);
 
-    type = setInterval(typeing, 120);
   }
 }
 function getMaximumTextArray() {
