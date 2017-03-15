@@ -21,9 +21,14 @@
       }
     </style>
   </head>
-  <body onload="typeHandler(); blinkerHandler();">
+  <body>
     <p>In this project i'm gonna make a tekst typer</p>
 
     <div><div id="text"></div><div id="blinker">&nbsp;</div></div>
+
+    <script>
+      var textArray = ["Hoi ik ben Peter", "Lol", "PRANK", "JWZ"];
+      intializeTyper(textArray, 130, "text");
+    </script>
   </body>
 </html>

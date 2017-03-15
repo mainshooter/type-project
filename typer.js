@@ -1,7 +1,7 @@
 var textArray = [];
 textArray[0] = "I'm a programmer";
-textArray[1] = "I'm gone build something";
-textArray[2] = "You gone love it!";
+textArray[1] = "I'm will build something";
+textArray[2] = "You will love it!";
 textArray[3] = "HOI";
 // Contains the text
 // Contains the variable names of every text
@@ -21,6 +21,28 @@ var type;
 var runable = "true";
 //Contains if the application is ready to run
 
+var typeID = "text";
+// Contains the ID where we are typeing
+
+var speed = 100;
+// Contains the speed in miliseconds
+
+function intializeTyper(array,speed, typeID) {
+  // starts everything
+  setTextArray(array);
+  setSpeed(speed);
+  setTypeID(typeID);
+  // Declaration of basic variabels
+
+  typeHandler();
+  blinkerHandler();
+}
+function setSpeed(speed) {
+  speed = speed;
+}
+function setTypeID(typeID) {
+  typeID = typeID;
+}
 function setTextArray(object) {
   // Get the textArray and set if for the script
   if (typeof(object) == "object") {
@@ -30,6 +52,12 @@ function setTextArray(object) {
     alert("This isn't a array");
     runable = "false";
   }
+}
+function createBlinker() {
+  // This function creates the blinker after the ID of the typer
+  var blink = document.createElement("div");
+  blink.id = "blinker";
+  
 }
 function stringToArray(array) {
   array = array.split("");
@@ -57,7 +85,7 @@ function typeing() {
 
       // Its to long lets break it!
       clearInterval(type);
-      type = setInterval(backSpace, 120);
+      type = setInterval(backSpace, speed);
     }
   }
   textArrayPosition++;
@@ -97,7 +125,7 @@ function typeHandler() {
     }
     var currentText = textArray[currentPosition];
     textInArray = stringToArray(currentText);
-    type = setInterval(typeing, 100);
+    type = setInterval(typeing, speed);
   }
 }
 function getMaximumTextArray() {
@@ -107,7 +135,7 @@ function getMaximumTextArray() {
 
 function placeText(text) {
   // This function places the tekst
-  document.getElementById('text').innerHTML = text;
+  document.getElementById(typeID).innerHTML = text;
 }
 function blinkerHandler() {
   // Blinks
