@@ -2,7 +2,7 @@ var textArray = [];
 textArray[0] = "I'm a programmer";
 textArray[1] = "I'm will build something";
 textArray[2] = "You will love it!";
-textArray[3] = "HOI";
+textArray[3] = "And you pay for it!";
 // Contains the text
 // Contains the variable names of every text
 
@@ -37,8 +37,8 @@ function intializeTyper(array,speed, typeID) {
   typeHandler();
   blinkerHandler();
 }
-function setSpeed(speed) {
-  speed = speed;
+function setSpeed(speedInput) {
+  speed = speedInput;
 }
 function setTypeID(typeID) {
   typeID = typeID;
@@ -57,7 +57,7 @@ function createBlinker() {
   // This function creates the blinker after the ID of the typer
   var blink = document.createElement("div");
   blink.id = "blinker";
-  
+  document.getElementById(typeID).appendChild(blink);
 }
 function stringToArray(array) {
   array = array.split("");
