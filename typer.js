@@ -38,7 +38,28 @@ function intializeTyper(array,speed, typeID) {
   blinkerHandler();
 }
 function setSpeed(speedInput) {
-  speed = speedInput;
+  // We set the type speed
+  if (typeof(speedInput) == "string") {
+    // If the speed is a string
+    // We check if there is one in here that is equal to the input
+    // We set the speed
+    switch (speedInput) {
+      case 'slow':
+        speed = 180;
+        break;
+      case 'normal':
+        speed = 120;
+        break;
+      case 'fast':
+        speed = 60;
+        break;
+      default:
+        speed = 120;
+    }
+  }
+  else {
+    speed = speedInput;
+  }
 }
 function setTypeID(typeID) {
   typeID = typeID;
@@ -52,6 +73,9 @@ function setTextArray(object) {
     alert("This isn't a array");
     runable = "false";
   }
+}
+function checkIfBlinkerExists() {
+  // This function check if the blinker was created
 }
 function createBlinker() {
   // This function creates the blinker after the ID of the typer
