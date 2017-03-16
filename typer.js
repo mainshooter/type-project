@@ -93,7 +93,7 @@ function setSpeed(speedInput) {
         speed = 120;
     }
   }
-  else {
+  else if (typeof(speedInput) == "number"){
     speed = speedInput;
   }
 }
