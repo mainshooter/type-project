@@ -18,6 +18,9 @@ var textInArray;
 var type;
 // type contains the setInterval
 
+var blink;
+// Contains the setInterval for the blinker
+
 var runable = "true";
 //Contains if the application is ready to run
 
@@ -27,15 +30,32 @@ var typeID = "text";
 var speed = 100;
 // Contains the speed in miliseconds
 
-function intializeTyper(array,speed, typeID) {
+var useBlinker;
+// This variable contains if we want to use the blinker
+
+function intializeTyper(array,speed, typeID, blinkerUse) {
   // starts everything
   setTextArray(array);
   setSpeed(speed);
   setTypeID(typeID);
+  setBlinkerUse(blinkerUse);
   // Declaration of basic variabels
 
   typeHandler();
-  blinkerHandler();
+  if (useBlinker == "true" || useBlinker == 0) {
+    // We dont run the blinker because the developer doesn't want to
+    blinkerHandler();
+  }
+}
+function setBlinkerUse(blinkerUse) {
+  if (blinkerUse == "true" || blinkerUse == 1) {
+    // We enable the blinker
+    useBlinker = "true";
+  }
+  else if (blinkerUse == "false" || blinkerUse == 0){
+    // Disable blinker
+    useBlinker = "false";
+  }
 }
 function setSpeed(speedInput) {
   // We set the type speed
@@ -76,6 +96,11 @@ function setTextArray(object) {
 }
 function checkIfBlinkerExists() {
   // This function check if the blinker was created
+  if (document.getElementById('blinker') == null) {
+    alert("WE DONT HAVE A BLINKER");
+    clearInterval(blink);
+    // We disable the blinker to prevent furter errors
+  }
 }
 function createBlinker() {
   // This function creates the blinker after the ID of the typer
@@ -163,11 +188,11 @@ function placeText(text) {
 }
 function blinkerHandler() {
   // Blinks
-  var blink;
   blink = setInterval(blinker, 300);
 }
 function blinker() {
   // This function wil enable and disable the blinker
+  checkIfBlinkerExists();
   var blink = document.getElementById('blinker');
   if (blink.className == "") {
     blink.className = "blinker";
