@@ -33,6 +33,14 @@ var speed = 100;
 var useBlinker;
 // This variable contains if we want to use the blinker
 
+var blinkerStyle = {
+  backgroundcolor: "orange",
+  height: "1em",
+  width: "0.3em",
+  border: "0"
+};
+// Contains the style for the blinker as a object
+
 function intializeTyper(array,speed, typeID, blinkerUse) {
   // starts everything
   setTextArray(array);
