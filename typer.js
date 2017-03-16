@@ -1,3 +1,11 @@
+/*
+    Author: Peter Romijn
+    Organisation: SameBestDevelopment
+*/
+
+
+
+
 var textArray = [];
 textArray[0] = "I'm a programmer";
 textArray[1] = "I'm will build something";
@@ -30,7 +38,7 @@ var typeID = "text";
 var speed = 100;
 // Contains the speed in miliseconds
 
-var useBlinker;
+var useBlinker = "true";
 // This variable contains if we want to use the blinker
 
 var blinkerStyle = {
