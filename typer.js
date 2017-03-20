@@ -47,6 +47,15 @@ var blinkerStyle = {
   width: "0.3em",
   border: "0"
 };
+for (var key in blinkerStyle) {
+  // Foreach
+  console.log(key + " " + blinkerStyle[key]);
+  console.log(key);
+  // var test = document.getElementById('blinker').style;
+  // test.key = blinkerStyle[key];
+  // document.getElementById('blinker').style.(key);
+}
+console.log(blinkerStyle);
 // Contains the style for the blinker as a object
 
 function intializeTyper(array,speed, typeID, blinkerUse) {
@@ -113,9 +122,13 @@ function setTextArray(object) {
 function checkIfBlinkerExists() {
   // This function check if the blinker was created
   if (document.getElementById('blinker') == null) {
+    return("false");
     alert("WE DONT HAVE A BLINKER");
     clearInterval(blink);
     // We disable the blinker to prevent furter errors
+  }
+  else {
+    return("true");
   }
 }
 function createBlinker() {
@@ -194,7 +207,7 @@ function typeHandler() {
   }
 }
 function getMaximumTextArray() {
-  // This function get the maximum text that we can display
+  // This function get the maximum array lenght that we have
   return(textArray.length);
 }
 
@@ -203,18 +216,19 @@ function placeText(text) {
   document.getElementById(typeID).innerHTML = text;
 }
 function blinkerHandler() {
-  // Blinks
+  // Blinker start
   blink = setInterval(blinker, 300);
 }
 function blinker() {
   // This function wil enable and disable the blinker
-  checkIfBlinkerExists();
-  var blink = document.getElementById('blinker');
-  if (blink.className == "") {
-    blink.className = "blinker";
+  var check = checkIfBlinkerExists();
+  if (check == "true") {
+    var blink = document.getElementById('blinker');
+    if (blink.className == "") {
+      blink.className = "blinker";
+    }
+    else {
+      blink.className = "";
+    }
   }
-  else {
-    blink.className = "";
-  }
-
 }
